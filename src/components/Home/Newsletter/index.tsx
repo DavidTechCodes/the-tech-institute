@@ -21,11 +21,11 @@ const Newsletter = () => {
                 many more.
               </h3>
               <div>
-                <div className="relative text-white focus-within:text-white flex flex-row-reverse rounded-full pt-5 lg:pt-0">
+                <div className="relative text-black dark:text-white flex flex-row-reverse rounded-full pt-5 lg:pt-0">
                   <input
                     type="Email address"
                     name="q"
-                    className="py-6 lg:py-8 text-sm md:text-lg w-full mx-3 text-white/75 rounded-full pl-8 focus:outline-none focus:text-white"
+                    className="py-6 lg:py-8 text-sm md:text-lg w-full mx-3 rounded-full pl-8 focus:outline-none"
                     placeholder="Enter your email address"
                     autoComplete="off"
                   />
