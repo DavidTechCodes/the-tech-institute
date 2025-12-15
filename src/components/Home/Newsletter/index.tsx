@@ -17,15 +17,15 @@ const Newsletter = () => {
                 Newsletter.
               </h3>
               <h3 className="text-base font-normal text-white/75 text-center mb-8">
-                Subscrible to our newsletter for discounts, <br /> promo and
-                many more.
+                Subscribe to our newsletter for discounts, <br /> promo and many
+                more.
               </h3>
               <div>
                 <div className="relative text-black dark:text-white flex flex-row-reverse rounded-full pt-5 lg:pt-0">
                   <input
-                    type="Email address"
+                    type="email"
                     name="q"
-                    className="py-6 lg:py-8 text-sm md:text-lg w-full mx-3 rounded-full pl-8 focus:outline-none"
+                    className="py-4 lg:py-6 text-sm md:text-lg w-full rounded-full pl-8 focus:outline-none bg-black/80 text-white dark:text-white"
                     placeholder="Enter your email address"
                     autoComplete="off"
                   />
