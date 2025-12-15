@@ -3,88 +3,83 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
-import Image from "next/image";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import { TestimonialData } from "@/app/api/data";
-import { getImagePrefix } from "@/utils/util";
+import { Icon } from "@iconify/react";
 
-const Testimonial = () => {
+const AboutUs = () => {
 
     const settings = {
         dots: true,
-        dotsClass: "slick-dots",
         infinite: true,
         slidesToShow: 3,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         arrows: false,
         autoplay: true,
-        cssEase: "linear",
+        speed: 500,
         responsive: [
             {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                }
-            },
-            {
-                breakpoint: 800,
+                breakpoint: 1024,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                }
+                },
             },
             {
-                breakpoint: 600,
+                breakpoint: 640,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: false
-                }
-            }
-        ]
+                },
+            },
+        ],
     };
 
-    const renderStars = (rating: number) => {
-        const fullStars = Math.floor(rating);
-        const halfStars = rating % 1 >= 0.5 ? 1 : 0;
-        const emptyStars = 5 - fullStars - halfStars;
-
-        return (
-            <>
-                {Array(fullStars).fill(<Icon icon="tabler:star-filled" className="text-yellow-500 text-xl inline-block" />)}
-                {halfStars > 0 && <Icon icon="tabler:star-half-filled" className="text-yellow-500 text-xl inline-block" />}
-                {Array(emptyStars).fill(<Icon icon="tabler:star-filled" className="text-gray-400 text-xl inline-block" />)}
-            </>
-        );
-    };
+    const aboutData = [
+        {
+            title: "Who We Are",
+            icon: "mdi:school-outline",
+            description:
+                "We are a forward-thinking tech learning platform committed to equipping students with practical and in-demand digital skills.",
+        },
+        {
+            title: "Our Mission",
+            icon: "mdi:rocket-launch-outline",
+            description:
+                "To empower the next generation of tech creators, problem-solvers, and innovators through hands-on learning and expert mentorship.",
+        },
+        {
+            title: "Why Choose Us",
+            icon: "mdi:star-outline",
+            description:
+                "We combine expert instructors, practical projects, mentorship, and career-focused learning paths to help students succeed in tech.",
+        },
+    ];
 
     return (
-        <section id="testimonial">
-            <div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4'>
+        <section id="about-us" className="py-20 bg-lightgray">
+            <div className="container mx-auto lg:max-w-screen-xl px-4">
+
+                {/* Section Header */}
+                <div className="text-center mb-14">
+                    <h2 className="text-4xl font-bold text-darkbrown mb-4">
+                        About Us
+                    </h2>
+                    <p className="text-gray-700 dark:text-white max-w-2xl mx-auto">
+                        We make tech education practical, accessible, and impactful for learners of all backgrounds.
+                    </p>
+                </div>
+
+                {/* Slider */}
                 <Slider {...settings}>
-                    {TestimonialData.map((items, i) => (
-                        <div key={i}>
-                            <div className={`bg-white text-black rounded-2xl m-4 p-5 my-20 relative ${i % 2 ? 'shadow-testimonial-shadow2' : 'shadow-testimonial-shadow1'}`}>
-                                <div className="absolute top-[-45px]">
-                                    <Image src={`${items.imgSrc}`}
-                                        alt={items.name} width={100} height={100} className="inline-block" />
+                    {aboutData.map((item, index) => (
+                        <div key={index}>
+                            <div className="bg-white rounded-2xl p-8 m-4 shadow-lg hover:shadow-xl transition-all h-full">
+                                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-primary text-white mb-6 mx-auto">
+                                    <Icon icon={item.icon} className="text-3xl" />
                                 </div>
-                                <h4 className='text-base font-normal text-darkgray my-4'>{items.comment}</h4>
-                                <div className="flex justify-between items-center">
-                                    <div>
-                                        <h3 className='text-lg font-medium text-darkbrown pt-4 pb-2'>{items.name}</h3>
-                                        <h3 className='text-sm font-normal text-lightgray pb-2'>{items.profession}</h3>
-                                    </div>
-                                    <div className="flex">
-                                        {renderStars(items.rating)}
-                                    </div>
-                                </div>
+                                <h3 className="text-xl font-semibold text-center text-darkbrown mb-4">
+                                    {item.title}
+                                </h3>
+                                <p className="text-gray-600 text-center leading-relaxed">
+                                    {item.description}
+                                </p>
                             </div>
                         </div>
                     ))}
@@ -94,4 +89,4 @@ const Testimonial = () => {
     );
 };
 
-export default Testimonial;
+export default AboutUs;
