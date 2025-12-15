@@ -49,9 +49,9 @@ const Mentor = () => {
                         <div key={i}>
                             <div className='m-3 py-14 md:my-10 text-center text-black'>
                                 <div className="relative">
-                                    <Image src={`${getImagePrefix()}${items.imgSrc}`} alt="user-image" width={306} height={0} className="inline-block m-auto" />
+                                    <Image src={`${items.imgSrc}`} alt="user-image" width={306} height={0} className="inline-block m-auto" />
                                     <div className="absolute right-[84px] bottom-[102px] bg-white rounded-full p-4">
-                                        <Image src={`${getImagePrefix()}images/mentor/linkedin.svg`}alt="linkedin-image" width={25} height={24} />
+                                        <Image src={`images/mentor/linkedin.svg`}alt="linkedin-image" width={25} height={24} />
                                     </div>
                                 </div>
                                 <div className="-mt-10">
